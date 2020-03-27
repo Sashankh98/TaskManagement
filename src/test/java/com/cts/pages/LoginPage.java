@@ -5,25 +5,30 @@ import org.openqa.selenium.WebDriver;
 
 public class LoginPage {
 
-	private  By userNameLoc = By.xpath("//input[@name='login']");
-	private  By passWordLoc = By.xpath("//input[@name='password']");
-	private  By loginButtonLoc = By.xpath("//input[@name='DoLogin']");
+	private By userNameLoc = By.xpath("//input[@name='login']");
+	private By passWordLoc = By.xpath("//input[@name='password']");
+	private By loginButtonLoc = By.xpath("//input[@name='DoLogin']");
+	public WebDriver driver;
 
-	public  void enterUserName(WebDriver driver, String username) {
+	public LoginPage(WebDriver driver) {
+		this.driver = driver;
+	}
 
-		//sending userName credentials
+	public void enterUserName(String username) {
+
+		// sending userName credentials
 		driver.findElement(userNameLoc).sendKeys(username);
 	}
 
-	public  void enterPassWord(WebDriver driver, String password) {
+	public void enterPassWord(String password) {
 
-		//sending password credentials
+		// sending password credentials
 		driver.findElement(passWordLoc).sendKeys(password);
 	}
 
-	public  void clickOnLogin(WebDriver driver) {
+	public void clickOnLogin() {
 
-		//clicking on login button
+		// clicking on login button
 		driver.findElement(loginButtonLoc).click();
 	}
 
